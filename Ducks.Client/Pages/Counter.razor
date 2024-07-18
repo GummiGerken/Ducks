@@ -1,0 +1,33 @@
+﻿@page "/counter"
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+
+    private int currentCount = 0;
+
+    /// <summary>
+    /// Two more things potentially need to be added to get debugging to work.
+    ///
+    /// From Microsoft's documentation:
+    /// https://learn.microsoft.com/en-us/aspnet/core/blazor/debug?view=aspnetcore-8.0&tabs=visual-studio
+    ///
+    /// There is a Nuget package "Microsoft.AspNetCore.Components.WebAssembly.DevServer"
+    /// That Nuget package can only be added to the Ducks.Client project, or debugging will break.
+    ///
+    /// Also, Microsoft documentation indicates this line is needed in properties/launchSettings.json:
+    /// "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}"
+    ///
+    /// However, adding that line to the MVC app causes debugging to break.
+    /// </summary>
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
